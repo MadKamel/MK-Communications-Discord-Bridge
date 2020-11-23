@@ -14,7 +14,8 @@ intents = discord.Intents.all()
 token = os.getenv('token')
 client = discord.Client(intents=intents)
 
-discord_output = client.get_channel(776608765150756935)
+homechan_id = 780473910172975175
+homechan = client.get_channel(homechan_id)
 
 def ircDaemon():
   while True:
@@ -37,7 +38,8 @@ def ircDaemon():
 
 @client.event
 async def on_message(msg):
-  ircclient.send('post <' + msg.author.name + '> ' + msg.content)
+  if msg.channel == homechan:
+    ircclient.send('post <' + msg.author.name + '> ' + msg.content)
 
 
 ircDaemonProc = threading.Thread(target=ircDaemon, daemon=True)
