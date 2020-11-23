@@ -16,7 +16,7 @@ client = discord.Client(intents=intents)
 
 def ircDaemon():
   while True:
-    cmd, user, fullmsg = comms.parsecmd(client.get_text())
+    cmd, user, fullmsg = comms.parsecmd(ircclient.get_text())
     if not cmd == None:
       if cmd == 'ping':
         client.send('pong')
