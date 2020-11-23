@@ -29,7 +29,7 @@ def ircDaemon():
         if fullmsg.split(' ')[1] == nickname:
           sent_command = ' '.join(fullmsg.split(' ')[2:])
           print('sending message from ' + user + ' to logs.')
-          print(user + ' :: ' + sent_command)
+          print('<' + user + '> ' + sent_command)
 
 
 
