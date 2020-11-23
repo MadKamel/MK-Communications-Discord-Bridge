@@ -19,7 +19,7 @@ def ircDaemon():
     cmd, user, fullmsg = comms.parsecmd(ircclient.get_text())
     if not cmd == None:
       if cmd == 'ping':
-        client.send('pong')
+        ircclient.send('pong')
         print('ping from ' + user + ' ponged.')
     
       elif cmd == 'pong':
