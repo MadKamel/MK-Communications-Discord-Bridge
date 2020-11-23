@@ -38,7 +38,7 @@ def ircDaemon():
 
 @client.event
 async def on_message(msg):
-  if msg.channel == homechan:
+  if msg.channel.id == homechan_id:
     ircclient.send('post <' + msg.author.name + '> ' + msg.content)
 
 
